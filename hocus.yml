@@ -3,7 +3,7 @@ image:
   file: hocus.Dockerfile
 tasks:
   - name: Update
-    prebuild: sudo apt update && sudo apt install -q -y curl && curl -sL "https://deb.nodesource.com/setup_14.x" | sudo bash - && sudo apt update && sudo apt -q -y install nodejs && npm install -g yarn
+    prebuild: sudo apt update && sudo apt install -q -y curl && curl -sL "https://deb.nodesource.com/setup_14.x" | sudo bash - && sudo apt update && sudo apt -q -y install nodejs && sudo npm install -g yarn
     workspace: yarn && yarn build && yarn dev
 vscode:
   # You can specify extensions you want in your workspace here
