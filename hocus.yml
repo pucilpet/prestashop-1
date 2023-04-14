@@ -3,7 +3,7 @@ image:
   file: hocus.Dockerfile
 tasks:
   - name: Second task
-    prebuild: echo "yarn"
+    prebuild: yarn
     workspace: echo "This executes every time the workspace is started"
 vscode:
   # You can specify extensions you want in your workspace here
