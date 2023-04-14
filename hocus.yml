@@ -3,14 +3,14 @@ image:
   file: hocus.Dockerfile
 tasks:
   - name: Update
-    prebuild: apt update
+    prebuild: sudo apt update
     workspace: echo "Updated"
-  - name: NPM
-    prebuild: apt install -q -y nodejs
-    workspace: echo "NPM INstalled"
-  - name: yarn
-    prebuild: npm install -g yarn
-    workspace: echo "yarn INstalled"
+  - name: curl
+    prebuild: sudo apt install -q -y curl
+    workspace: echo "curl INstalled"
+  - name: npm and yarn
+    prebuild: curl -sL "https://deb.nodesource.com/setup_14.x" | sudo bash - && sudo apt update && sudo apt -q -y install nodejs && npm install -g yarn
+    workspace: echo "npm INstalled"
   - name: yarn install
     prebuild: yarn
     workspace: echo "dependencies installed"
