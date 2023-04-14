@@ -2,9 +2,21 @@ image:
   buildContext: .
   file: hocus.Dockerfile
 tasks:
-  - name: Second task
+  - name: Update
+    prebuild: apt update
+    workspace: echo "Updated"
+  - name: NPM
+    prebuild: apt install -q -y nodejs
+    workspace: echo "NPM INstalled"
+  - name: yarn
+    prebuild: npm install -g yarn
+    workspace: echo "yarn INstalled"
+  - name: yarn install
     prebuild: yarn
-    workspace: echo "This executes every time the workspace is started"
+    workspace: echo "dependencies installed"
+  - name: yarn build
+    prebuild: yarn build
+    workspace: yarn dev
 vscode:
   # You can specify extensions you want in your workspace here
   extensions:
